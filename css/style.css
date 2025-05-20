@@ -19,6 +19,16 @@
     --black-color: #070707;
     --gradient: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%);
     --back-gradient: linear-gradient(180deg, rgba(80, 0, 250, 0.93) 0%, #BC10D8 100%);
+
+    color-scheme: light dark;
+   
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+      background-color: var(--black-color);
+      color: var(--white-color);
+      
+    }
 }
 
 *,
@@ -460,6 +470,12 @@ body {
 .oculus .buy__btn {
     margin: 0 auto;
     margin-bottom: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .oculus__bg {
+       filter: contrast(400%);
+    }
 }
 
 /*  In the box */
