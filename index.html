@@ -25,15 +25,16 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <button type="menu" id="navMenu">
+                <button type="button" id="navMenu" aria-label="Toggle navigation menu" aria-expanded="false"
+                    aria-controls="mainMenu">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                <ul class="menu">
-                    <li class="menu__list"><a href="" class="menu__link">SHOP</a></li>
-                    <li class="menu__list"><a href="" class="menu__link">GAMES</a></li>
-                    <li class="menu__list"><a href="" class="menu__link">METAVERSE</a></li>
+                <ul class="menu" id="mainMenu">
+                    <li class="menu__list"><a href="#" class="menu__link">SHOP</a></li>
+                    <li class="menu__list"><a href="#" class="menu__link">GAMES</a></li>
+                    <li class="menu__list"><a href="#" class="menu__link">METAVERSE</a></li>
                 </ul>
                 <a class="logo" href="#"><img src="icons/logo.svg" alt=""></a>
                 <a class="basket basket-on" href="#"><img src="icons/bag.svg" alt=""><span>1</span></a>
@@ -60,22 +61,30 @@
                     <p class="content__title">Easy to set up and safe to use</p>
                 </div>
                 <div class="tabs">
-                    <div class="feature__tabs">
-                        <button class="tab__btn tab__btn--active" data-tab="1">01 Graphics</button>
-                        <button class="tab__btn" data-tab="2">02 Controls</button>
-                        <button class="tab__btn" data-tab="3">03 Processor</button>
-                        <button class="tab__btn" data-tab="4">04 Set up your play area</button>
-                        <button class="tab__btn" data-tab="5">05 Gardian activity</button>
-                        <button class="tab__btn" data-tab="6">06 Headset casting</button>
+                    <div class="feature__tabs" role="tablist" aria-label="Product features"
+                        aria-orientation="vertical">
+                        <button class="tab__btn tab__btn--active" data-tab="1" role="tab" id="tab-1"
+                            aria-controls="panel-1" aria-selected="true" tabindex="0">01 Graphics</button>
+                        <button class="tab__btn" data-tab="2" role="tab" id="tab-2" aria-controls="panel-2"
+                            aria-selected="false" tabindex="-1">02 Controls</button>
+                        <button class="tab__btn" data-tab="3" role="tab" id="tab-3" aria-controls="panel-3"
+                            aria-selected="false" tabindex="-1">03 Processor</button>
+                        <button class="tab__btn" data-tab="4" role="tab" id="tab-4" aria-controls="panel-4"
+                            aria-selected="false" tabindex="-1">04 Set up your play area</button>
+                        <button class="tab__btn" data-tab="5" role="tab" id="tab-5" aria-controls="panel-5"
+                            aria-selected="false" tabindex="-1">05 Guardian activity</button>
+                        <button class="tab__btn" data-tab="6" role="tab" id="tab-6" aria-controls="panel-6"
+                            aria-selected="false" tabindex="-1">06 Headset casting</button>
                     </div>
                     <div class="features__tabs__content">
-                        <div class="features__tab__content-item tab-content-1">
+                        <div class="features__tab__content-item tab-content-1" role="tabpanel" id="panel-1"
+                            aria-labelledby="tab-1">
                             <img src="images/features.jpg" alt="Virtual reality headset with glowing purple and blue lights in the foreground, digital globe with network connections and cityscape in the background, futuristic and energetic atmosphere" class="tab__content--image">
                             <div class="tab__content--text">
                                 <p class="tab__content--title">Graphics</p>
                                 <p class="tab__content-descr">With 1832 x 1920 pixels per eye, everything from
                                     multiplayer games and
-                                    productivity apps to 360 0 videos look beyond incredible</p>
+                                    productivity apps to 360° videos look beyond incredible</p>
                             </div>
                             <div class="tab__content--video">
                                 <button class="video__btn">
@@ -84,12 +93,13 @@
                                 <span>Watch the video</span>
                             </div>
                         </div>
-                        <div class="features__tab__content-item tab-content-2 hidden">
+                        <div class="features__tab__content-item tab-content-2 hidden" role="tabpanel" id="panel-2"
+                            aria-labelledby="tab-2">
                                     <img src="images/features.jpg" alt="Virtual reality headset with glowing purple and blue lights in the foreground, digital globe with network connections and cityscape in the background, futuristic and energetic atmosphere" class="tab__content--image">
                                     <div class="tab__content--text">
                                         <p class="tab__content--title">Graphics</p>
                                         <p class="tab__content-descr">With 1832 x 1920 pixels per eye, everything from multiplayer games and
-                                            productivity apps to 360 0 videos look beyond incredible</p>
+                                            productivity apps to 360° videos look beyond incredible</p>
                                     </div>
                                     <div class="tab__content--video">
                                         <button class="video__btn">
@@ -98,12 +108,13 @@
                                         <span>Watch the video</span>
                                     </div>
                         </div>
-                        <div class="features__tab__content-item tab-content-3 hidden">
+                        <div class="features__tab__content-item tab-content-3 hidden" role="tabpanel" id="panel-3"
+                            aria-labelledby="tab-3">
                                     <img src="images/features.jpg" alt="" class="tab__content--image">
                                     <div class="tab__content--text">
                                         <p class="tab__content--title">Graphics</p>
                                         <p class="tab__content-descr">With 1832 x 1920 pixels per eye, everything from multiplayer games and
-                                            productivity apps to 360 0 videos look beyond incredible</p>
+                                            productivity apps to 360° videos look beyond incredible</p>
                                     </div>
                                     <div class="tab__content--video">
                                         <button class="video__btn">
@@ -112,12 +123,13 @@
                                         <span>Watch the video</span>
                                     </div>
                         </div>
-                        <div class="features__tab__content-item tab-content-4 hidden">
+                        <div class="features__tab__content-item tab-content-4 hidden" role="tabpanel" id="panel-4"
+                            aria-labelledby="tab-4">
                                     <img src="images/features.jpg" alt="" class="tab__content--image">
                                     <div class="tab__content--text">
                                         <p class="tab__content--title">Graphics</p>
                                         <p class="tab__content-descr">With 1832 x 1920 pixels per eye, everything from multiplayer games and
-                                            productivity apps to 360 0 videos look beyond incredible</p>
+                                            productivity apps to 360° videos look beyond incredible</p>
                                     </div>
                                     <div class="tab__content--video">
                                         <button class="video__btn">
@@ -126,12 +138,13 @@
                                         <span>Watch the video</span>
                                     </div>
                         </div>
-                        <div class="features__tab__content-item tab-content-5 hidden">
+                        <div class="features__tab__content-item tab-content-5 hidden" role="tabpanel" id="panel-5"
+                            aria-labelledby="tab-5">
                                     <img src="images/features.jpg" alt="" class="tab__content--image">
                                     <div class="tab__content--text">
                                         <p class="tab__content--title">Graphics</p>
                                         <p class="tab__content-descr">With 1832 x 1920 pixels per eye, everything from multiplayer games and
-                                            productivity apps to 360 0 videos look beyond incredible</p>
+                                            productivity apps to 360° videos look beyond incredible</p>
                                     </div>
                                     <div class="tab__content--video">
                                         <button class="video__btn">
@@ -140,12 +153,13 @@
                                         <span>Watch the video</span>
                                     </div>
                         </div>
-                        <div class="features__tab__content-item tab-content-6 hidden">
+                        <div class="features__tab__content-item tab-content-6 hidden" role="tabpanel" id="panel-6"
+                            aria-labelledby="tab-6">
                                     <img src="images/features.jpg" alt="" class="tab__content--image">
                                     <div class="tab__content--text">
                                         <p class="tab__content--title">Graphics</p>
                                         <p class="tab__content-descr">With 1832 x 1920 pixels per eye, everything from multiplayer games and
-                                            productivity apps to 360 0 videos look beyond incredible</p>
+                                            productivity apps to 360° videos look beyond incredible</p>
                                     </div>
                                     <div class="tab__content--video">
                                         <button class="video__btn">
@@ -166,28 +180,28 @@
                         <p class="content__title">It’s all fun and games</p>
                         <p class="game__descr-text">Discover new adventures, master epic challenges or revisit classic
                             moments in your favourite games and experiences</p>
-                        <a href="" class="game__link">SEE ALL GAMES</a>
+                        <a href="#" class="game__link">SEE ALL GAMES</a>
                     </div>
                     <div class="game__item">
                         <img src="images/game-1.jpg" alt="A bearded man with a sword strapped to his back turns away from the viewer with his gloved hand engulfed in flames, set against ancient stone ruins and a dramatic sky, conveying intense action and adventure" class="game__img">
                         <h3 class="game__item-title">Blade & Sorcery: Nomad</h3>
-                        <p class="game__item-text">Step into a medieval fantasy sandbox that uses phisics to serve up
+                        <p class="game__item-text">Step into a medieval fantasy sandbox that uses physics to serve up
                             some of the most realistic combat in VR</p>
-                        <a href="" class="game__item-link">see more</a>
+                        <a href="#" class="game__item-link">see more</a>
                     </div>
                     <div class="game__item">
                         <img src="images/game-2.jpg" alt="Three futuristic characters in vibrant armor stand confidently under neon lights in a cyberpunk city. The central figure wears a long coat and holds a card, while the background features a glowing sign that reads POP N CHICKEN. The scene feels energetic and intense, suggesting teamwork and action in a lively urban environment." class="game__img">
                         <h3 class="game__item-title">Population: One</h3>
                         <p class="game__item-text">Climb anything. Fight everywhere. Experience battle royale only possible in VR
                         </p>
-                        <a href="" class="game__item-link">see more</a>
+                        <a href="#" class="game__item-link">see more</a>
                     </div>
                     <div class="game__item">
                         <img src="images/game-3.jpg" alt="Man wearing a virtual reality headset stands on a circular platform in a desert landscape, punching forward as an explosion of sparks and debris bursts from his fist while glowing objects streak through the sky, creating an energetic and adventurous atmosphere" class="game__img">
                         <h3 class="game__item-title">Supernatural</h3>
                         <p class="game__item-text">Box, Flow, Meditate and Stretch with real coaches in stunning
                             destinations from around the world. Enjoy new workouts every day.</p>
-                        <a href="" class="game__item-link">see more</a>
+                        <a href="#" class="game__item-link">see more</a>
                     </div>
                 </div>
             </div>
@@ -277,7 +291,7 @@
                         <p class="subscribe__text">By signing up you agree to receive updates and marketing messages (e.g.
                                 email, social, etc.) from Meta about Meta’s existing and future products and services. You may
                                 withdraw your consent and unsubscribe at any time by clicking the unsubscribe link included in
-                                our messages. Your subscription is subject to the <a href="">Terms and Privacy Policy</a>.</p>
+                                our messages. Your subscription is subject to the <a href="#">Terms and Privacy Policy</a>.</p>
                     </form>
                     <div class="contact"><a href="mailto:oculusshop@gmail.com">oculusshop@gmail.com</a></div>
                 </div>
@@ -305,4 +319,4 @@
   <script src="js/main.js"></script>
 </body>
 
-</html>
+</html>

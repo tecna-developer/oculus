@@ -1,15 +1,17 @@
 @font-face {
-    font-family: 'Helvetica', sans-serif;
-    src: url(../fonts/helvetica.woff2);
+    font-family: 'Helvetica';
+    src: url(../fonts/helvetica.woff2) format('woff2');
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica-Bold', sans-serif;
-    src: url(../fonts/helvetica-bold.woff2);
+    font-family: 'Helvetica-Bold';
+    src: url(../fonts/helvetica-bold.woff2) format('woff2');
     font-style: normal;
     font-weight: 700;
+    font-display: swap;
 }
 
 :root {
@@ -310,15 +312,9 @@ body {
     grid-row: 1 / -1;
     width: 100%;
     height: 100%;
+    object-fit: cover;
     padding-right: 2rem;
     border-right: 1px solid var(--light-grey-color);
-
-}
-
-.tab__content--image img {
-    width: 58rem;
-    height: 30rem;
-    object-fit: cover;
 
 }
 
@@ -337,7 +333,6 @@ body {
     width: 28rem;
     height: 15rem;
     position: relative;
-    z-index: -1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -399,7 +394,6 @@ body {
 
 .game__link:hover {
     border-image: var(--back-gradient);
-    color: var(--back-gradient);
     border-image-slice: 1;
 }
 
@@ -695,7 +689,7 @@ body {
     align-self: flex-end;
 }
 
-.contact :hover {
+.contact a:hover {
     text-decoration: solid underline #BC10D8 3px;
 }
 
@@ -732,8 +726,10 @@ body {
     justify-self: flex-end;
 }
 
-.social img :hover {
-    fill: #BC10D8;
+/* SVG подключены через <img>, поэтому перекрасить их fill нельзя —
+   для этого нужен инлайновый <svg> с currentColor */
+.social:hover img {
+    opacity: .6;
 }
 
 
