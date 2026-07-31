@@ -16,6 +16,8 @@ const btns = document.querySelector('.feature__tabs'),
 
 
     btns.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('tab__btn')) return;
+
         tabs.forEach(el => {
             el.classList.remove('tab__btn--active');
         });
@@ -24,10 +26,8 @@ const btns = document.querySelector('.feature__tabs'),
             item.classList.add("hidden");
         })
 
-        if(e.target.classList.contains('tab__btn')){
-            e.target.classList.add('tab__btn--active');
-        };
-       
-        const data = e.target.getAttribute("data-");
+        e.target.classList.add('tab__btn--active');
+
+        const data = e.target.dataset.tab;
         document.querySelector(`.tab-content-${data}`).classList.remove("hidden");
     });

@@ -13,6 +13,7 @@
 }
 
 :root {
+    /* Палитра — не зависит от темы */
     --grey-color: #5C5C5E;
     --white-color: #F6F4F5;
     --light-grey-color: #CACAD6;
@@ -20,14 +21,22 @@
     --gradient: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%);
     --back-gradient: linear-gradient(180deg, rgba(80, 0, 250, 0.93) 0%, #BC10D8 100%);
 
+    /* Роли — переопределяются в тёмной теме */
+    --bg-color: #FFFFFF;
+    --text-color: var(--grey-color);
+    --heading-color: var(--black-color);
+    --line-color: var(--black-color);
+
     color-scheme: light dark;
-   
+
 }
+
 @media (prefers-color-scheme: dark) {
     :root {
-      background-color: var(--black-color);
-      color: var(--white-color);
-      
+        --bg-color: var(--black-color);
+        --text-color: var(--light-grey-color);
+        --heading-color: var(--white-color);
+        --line-color: var(--white-color);
     }
 }
 
@@ -83,7 +92,8 @@ body {
     font-weight: 400;
     font-size: 16px;
     line-height: 1.4;
-    color: var(--grey-color);
+    color: var(--text-color);
+    background-color: var(--bg-color);
     display: grid;
     grid-template-rows: min-content 1fr min-content;
     min-width: 32rem;
@@ -103,6 +113,7 @@ body {
     align-items: center;
     height: 8rem;
 }
+
 #navMenu {
     display: none;
     flex-direction: column;
@@ -114,11 +125,11 @@ body {
     aspect-ratio: 4/3;
 }
 
-#navMenu > span {
+#navMenu>span {
     width: 100%;
     height: 2px;
     border-radius: 9999px;
-    background-color: var(--black-color);
+    background-color: var(--line-color);
 
 }
 
@@ -141,7 +152,7 @@ body {
 
 .basket {
     position: relative;
-    justify-self:flex-end;
+    justify-self: flex-end;
 }
 
 .basket-on span {
@@ -165,6 +176,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: calc(100vh - 8rem);
+    /* Фото всегда светлое, поэтому текст не следует за темой */
+    color: var(--grey-color);
 
 }
 
@@ -196,7 +209,7 @@ body {
     align-items: center;
     padding: 1px;
     margin-bottom: 1.5rem;
-   
+
 }
 
 .buy__btn--text {
@@ -205,12 +218,15 @@ body {
     padding-inline: 11rem;
     text-transform: uppercase;
 }
+
 .buy__btn--text:hover {
-    background-image:var(--back-gradient);
+    background-image: var(--back-gradient);
 }
 
 .buy__btn--price {
     background-color: #E9E7EA;
+    /* Плашка всегда светлая, поэтому текст не следует за темой */
+    color: var(--grey-color);
     padding-inline: 10.5rem;
     padding-block: 2rem;
 }
@@ -270,11 +286,11 @@ body {
 .tab__btn {
     padding-block: 1rem;
     padding-inline-end: 1rem;
-    transition: all .3 ease;
+    transition: all .3s ease;
 }
 
 .tab__btn--active {
-    color: var(--black-color);
+    color: var(--heading-color);
     font-weight: 700;
 }
 
@@ -285,6 +301,7 @@ body {
     gap: 4rem;
 
 }
+
 .hidden {
     display: none;
 }
@@ -395,8 +412,8 @@ body {
     padding-block: 2rem;
     padding-inline: 2rem 1.8rem;
     box-shadow: -1px 17px 16px 0px rgba(188, 16, 216, 0.4);
-        -webkit-box-shadow: -1px 17px 16px 0px rgba(188, 16, 216, 0.4);
-        -moz-box-shadow: -1px 17px 16px 0px rgba(188, 16, 216, 0.4);
+    -webkit-box-shadow: -1px 17px 16px 0px rgba(188, 16, 216, 0.4);
+    -moz-box-shadow: -1px 17px 16px 0px rgba(188, 16, 216, 0.4);
 }
 
 .game__img {
@@ -407,7 +424,7 @@ body {
 }
 
 .game__item-title {
-    color: var(--black-color);
+    color: var(--heading-color);
     font-size: 2.4rem;
     font-weight: 400;
     line-height: 1;
@@ -435,15 +452,16 @@ body {
     white-space: nowrap;
     position: relative;
 }
+
 .oculus__bg {
     font-size: 400px;
     line-height: 1;
     font-weight: 700;
     text-transform: uppercase;
     background-image: var(--gradient);
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     opacity: .1;
     position: absolute;
     z-index: -1;
@@ -456,6 +474,7 @@ body {
         transform: translateX(115%);
         transform-origin: left center;
     }
+
     to {
         transform: translateX(-115%);
         transform-origin: right center;
@@ -467,6 +486,7 @@ body {
     /* width: 346px;
     height: 334px; */
 }
+
 .oculus .buy__btn {
     margin: 0 auto;
     margin-bottom: 1rem;
@@ -474,7 +494,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
     .oculus__bg {
-       filter: contrast(400%);
+        filter: contrast(400%);
     }
 }
 
@@ -490,7 +510,7 @@ body {
 .box__inner {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: repeat(2,1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 2rem;
 }
 
@@ -513,28 +533,29 @@ body {
 }
 
 .metaverse__btn {
-    background:var(--back-gradient);
-    color:var(--white-color);
+    background: var(--back-gradient);
+    color: var(--white-color);
     text-transform: uppercase;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     position: absolute;
     bottom: 8rem;
-    right:0;
-    left:0;
+    right: 0;
+    left: 0;
     margin: 0 auto;
     animation: scaleRight 2s linear infinite
-
 }
+
 @keyframes scaleRight {
     from {
         transform: scale(0);
-        
+
     }
+
     to {
         transform: scale(1.5, 1.3);
-        
+
 
     }
 }
@@ -562,8 +583,8 @@ body {
     align-items: center;
     padding: 2rem;
     box-shadow: -1px 17px 16px 0px rgba(188, 16, 216, 0.4);
-        -webkit-box-shadow: -1px 17px 16px 0px rgba(188, 16, 216, 0.4);
-        -moz-box-shadow: -1px 17px 16px 0px rgba(188, 16, 216, 0.4);
+    -webkit-box-shadow: -1px 17px 16px 0px rgba(188, 16, 216, 0.4);
+    -moz-box-shadow: -1px 17px 16px 0px rgba(188, 16, 216, 0.4);
 
 }
 
@@ -578,7 +599,7 @@ body {
 .card__title {
     font-weight: 400;
     font-size: 2.4rem;
-    color: var(--black-color);
+    color: var(--heading-color);
     text-align: left;
     margin-bottom: 1rem;
 }
@@ -588,7 +609,7 @@ body {
 }
 
 .card__price {
-    color: var(--black-color);
+    color: var(--heading-color);
     align-self: flex-start;
     margin-bottom: 2rem;
 }
@@ -607,18 +628,20 @@ body {
 .subscription {
     padding: 10rem 0;
 }
+
 .subscription__inner {
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     row-gap: 2rem;
 }
 
 .subscription__title {
-    color: var(--black-color);
+    color: var(--heading-color);
     font-size: 2.4rem;
 }
+
 .subscription__form {
     width: 50vw;
 
@@ -632,27 +655,31 @@ body {
     border-bottom: 1px solid var(--light-grey-color);
     margin-right: -5rem;
     font-size: 1.6rem;
-    &:placeholder {
-        color:var(--light-grey-color);
+
+    &::placeholder {
+        color: var(--light-grey-color);
     }
-    &::focus-visible {
-        outline:10px solid #BC10D8;
+
+    &:focus-visible {
+        outline: 2px solid #BC10D8;
+        outline-offset: 2px;
     }
 }
 
-.subscription__btn  {
+.subscription__btn {
     position: relative;
-    color:var(--white-color);
+    color: var(--white-color);
     background-color: var(--grey-color);
     width: 50px;
     height: 50px;
-    border-radius:50%;
+    border-radius: 50%;
     cursor: pointer;
 
 }
+
 .subscription__btn:hover {
-    background-color:#BC10D8;
-    color:var(--white-color);
+    background-color: #BC10D8;
+    color: var(--white-color);
 
 }
 
@@ -667,6 +694,7 @@ body {
 .contact {
     align-self: flex-end;
 }
+
 .contact :hover {
     text-decoration: solid underline #BC10D8 3px;
 }
@@ -703,8 +731,9 @@ body {
     gap: 0 2rem;
     justify-self: flex-end;
 }
+
 .social img :hover {
-    fill:#BC10D8;
+    fill: #BC10D8;
 }
 
 
@@ -715,14 +744,16 @@ body {
     .footer__nav {
         display: flex;
         justify-content: space-between;
-        align-items:center;
+        align-items: center;
     }
+
     .footer__menu {
         display: none;
     }
 
-    
+
 }
+
 @media (max-width:990px) {
     .features {
         padding: 7rem 0;
@@ -754,50 +785,56 @@ body {
     .metaverse {
         padding: 7rem 0;
     }
+
     .box__inner {
         grid-template-columns: repeat(2, 2fr);
         grid-template-rows: 2fr 1fr;
     }
-    
+
 
 }
+
 @media (max-width:880px) {
     .top {
         text-align: center;
     }
+
     .buy__btn {
         flex-direction: column;
         margin: 0 auto;
     }
+
     .game__inner {
         grid-template-columns: repeat(3, 1fr);
         gap: 3rem;
     }
+
     .accessories__inner {
         grid-template-columns: repeat(3, 1fr);
-        gap: 3rem;   
-    }   
+        gap: 3rem;
+    }
 }
+
 @media (max-width:820px) {
     .subscription__inner {
-            display: block;
-        }
-    
-    .subscription__form {
-            margin-bottom: 2rem;
+        display: block;
     }
-    
+
+    .subscription__form {
+        margin-bottom: 2rem;
+    }
+
     #navMenu {
-        display: flex; 
+        display: flex;
     }
 
     .menu {
         transform: translateX(-100%);
         flex-direction: column;
-        width:32rem;
+        width: 32rem;
         background-color: var(--grey-color);
         opacity: .8;
-        color:var(--white-color);
+        color: var(--white-color);
         position: absolute;
         z-index: 9999;
         top: 81px;
@@ -807,27 +844,28 @@ body {
         padding: 10rem 0;
         transition: transform 1s ease-in-out;
     }
-        
+
     .active {
         transform: translateX(0%);
-       
+
     }
+
     .menu__list {
         padding: 1rem;
         font-size: 2.4rem;
     }
 
     .box__inner {
-        grid-template-columns: 1fr 1fr ;
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: 2fr 1fr;
     }
-        
 
-    
+
+
 }
 
 @media (max-width:768px) {
-    
+
     .top__title {
         font-size: 6.6rem;
     }
@@ -854,12 +892,15 @@ body {
         width: auto;
         height: 25rem;
     }
+
     .game__inner {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .accessories__inner {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .subscription__form {
         width: 100vw;
     }
@@ -891,21 +932,26 @@ body {
     .features {
         padding-block: 4rem;
     }
+
     .game {
         padding-block: 4rem;
     }
+
     .game__inner {
         grid-template-columns: repeat(1, 1fr);
         place-items: center;
     }
+
     .game__item {
         max-width: 80%;
     }
+
     .box__inner {
-       display: block;
-       width: 100%;
+        display: block;
+        width: 100%;
     }
-    .box__inner >.content__title {
+
+    .box__inner>.content__title {
         display: none;
 
     }
@@ -913,40 +959,47 @@ body {
     .metaverse {
         padding-block: 4rem;
     }
+
     .metaverse__inner {
         min-height: 40rem;
     }
+
     .accessories__inner {
         grid-template-columns: repeat(1, 1fr);
     }
-    .subscription{
+
+    .subscription {
         padding-block: 4rem;
     }
+
     .subscription__form {
         width: 100vw;
-        
+
     }
+
     .footer__nav {
         flex-direction: column;
         row-gap: 2rem;
         height: auto;
     }
+
     .footer__social {
-        order:-1;
+        order: -1;
         gap: 2rem;
     }
 }
+
 @media (max-width:420px) {
     .game__inner {
         grid-template-columns: repeat(1, 1fr);
         gap: 2rem;
     }
+
     .game__item {
         max-width: 100%;
     }
+
     .menu {
         width: 100%;
     }
 }
-
-

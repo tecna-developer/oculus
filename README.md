@@ -15,7 +15,7 @@ Oculus is a software project created for educational purposes. It demonstrates h
 
  Clone the repository:
     ```
-    git clone https://github.com/tecna_developer/oculus.git
+    git clone https://github.com/tecna-developer/oculus.git
     ```
 
 ## Notes
