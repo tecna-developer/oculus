@@ -726,10 +726,14 @@ body {
     justify-self: flex-end;
 }
 
-/* SVG подключены через <img>, поэтому перекрасить их fill нельзя —
-   для этого нужен инлайновый <svg> с currentColor */
-.social:hover img {
-    opacity: .6;
+/* Иконки инлайновые, их path залит currentColor — красим ссылку */
+.social {
+    display: flex;
+    transition: color .3s ease;
+}
+
+.social:hover {
+    color: #BC10D8;
 }
 
 
