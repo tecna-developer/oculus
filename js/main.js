@@ -54,3 +54,18 @@ const btns = document.querySelector('.feature__tabs'),
         list[next].focus();
         selectTab(list[next]);
     });
+
+/* Модалка с видео */
+
+const videoModal = document.querySelector('#videoModal');
+const videoModalTitle = videoModal.querySelector('.video-modal__title');
+
+document.querySelectorAll('.video__btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (typeof videoModal.showModal !== 'function') return;
+
+        const panel = btn.closest('.features__tab__content-item');
+        videoModalTitle.textContent = panel.querySelector('.tab__content--title').textContent;
+        videoModal.showModal();
+    });
+});
