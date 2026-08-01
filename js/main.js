@@ -79,3 +79,32 @@ videoModal.querySelector('.video-modal__close').addEventListener('click', () => 
 videoModal.addEventListener('click', (e) => {
     if (e.target === videoModal) videoModal.close();
 });
+
+/* Кнопка GO в метаверс-блоке */
+
+const metaverseInner = document.querySelector('.metaverse__inner');
+const metaverseStatus = document.querySelector('.metaverse__status');
+const metaverseBtn = document.querySelector('.metaverse__btn');
+
+const METAVERSE_DONE_MS = 2000;
+
+metaverseBtn.addEventListener('click', () => {
+    metaverseBtn.disabled = true;
+    metaverseStatus.textContent = 'Entering the metaverse…';
+    metaverseInner.classList.add('metaverse__inner--loading');
+});
+
+/* Полоса — псевдоэлемент .metaverse__status::after, поэтому animationend
+   приходит на сам абзац. Слушаем его, а не общий таймер: в фоновой вкладке
+   браузер придерживает таймеры, и состояние разошлось бы с картинкой */
+metaverseStatus.addEventListener('animationend', (e) => {
+    if (e.animationName !== 'metaverseProgress') return;
+
+    metaverseInner.classList.remove('metaverse__inner--loading');
+    metaverseStatus.textContent = 'Coming soon';
+
+    setTimeout(() => {
+        metaverseStatus.textContent = '';
+        metaverseBtn.disabled = false;
+    }, METAVERSE_DONE_MS);
+});
