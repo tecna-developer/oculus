@@ -1,0 +1,21 @@
+# Playwright writes this into the repository root on every run
+.playwright-mcp/
+
+# Agent workspace: task briefs, implementer reports, review diffs, progress ledger.
+# Also covered by a nested .gitignore, but that one lives inside the directory it
+# protects, so it disappears with it.
+.superpowers/
+
+# Editor settings
+.vscode/
+.idea/
+
+# This project has no dependencies and no build step. The entry is here so an
+# accidental npm or npx run in the project directory cannot commit one.
+node_modules/
+package-lock.json
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store
