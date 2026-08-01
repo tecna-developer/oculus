@@ -538,19 +538,72 @@ body {
     right: 0;
     left: 0;
     margin: 0 auto;
-    animation: scaleRight 2s linear infinite
 }
 
-@keyframes scaleRight {
-    from {
-        transform: scale(0);
+.metaverse__btn:disabled {
+    cursor: default;
+}
 
+.metaverse__btn:focus-visible {
+    outline: 2px solid #BC10D8;
+    outline-offset: 4px;
+}
+
+/* Пульсация не опускается ниже полного размера: прежняя scaleRight уводила
+   кнопку в scale(0), и в начале каждого цикла по ней нельзя было попасть */
+@media (prefers-reduced-motion: no-preference) {
+    .metaverse__btn:not(:disabled) {
+        animation: metaversePulse 2s ease-in-out infinite;
+    }
+}
+
+@keyframes metaversePulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.metaverse__status {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 14rem;
+    width: min(80%, 32rem);
+    margin: 0 auto;
+    min-height: 2.4rem;
+    /* Фото блока всегда светло-розовое, поэтому текст не следует за темой */
+    color: var(--black-color);
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
+
+.metaverse__status::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin-top: 1rem;
+    background-image: var(--back-gradient);
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+.metaverse__inner--loading .metaverse__status::after {
+    animation: metaverseProgress 2s linear forwards;
+}
+
+@keyframes metaverseProgress {
+    from {
+        transform: scaleX(0);
     }
 
     to {
-        transform: scale(1.5, 1.3);
-
-
+        transform: scaleX(1);
     }
 }
 
