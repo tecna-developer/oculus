@@ -69,3 +69,13 @@ document.querySelectorAll('.video__btn').forEach(btn => {
         videoModal.showModal();
     });
 });
+
+videoModal.querySelector('.video-modal__close').addEventListener('click', () => {
+    videoModal.close();
+});
+
+/* Клик по затемнению: цель события — сам <dialog>, а не его содержимое,
+   которое целиком лежит в .video-modal__inner */
+videoModal.addEventListener('click', (e) => {
+    if (e.target === videoModal) videoModal.close();
+});
