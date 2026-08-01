@@ -87,7 +87,7 @@
                                     productivity apps to 360° videos look beyond incredible</p>
                             </div>
                             <div class="tab__content--video">
-                                <button class="video__btn">
+                                <button class="video__btn" type="button" aria-label="Watch the video">
                                     <img src="icons/play.svg" alt="">
                                 </button>
                                 <span>Watch the video</span>
@@ -103,7 +103,7 @@
                                     hands</p>
                             </div>
                             <div class="tab__content--video">
-                                <button class="video__btn">
+                                <button class="video__btn" type="button" aria-label="Watch the video">
                                     <img src="icons/play.svg" alt="">
                                 </button>
                                 <span>Watch the video</span>
@@ -119,7 +119,7 @@
                                     multitasking without limits</p>
                             </div>
                             <div class="tab__content--video">
-                                <button class="video__btn">
+                                <button class="video__btn" type="button" aria-label="Watch the video">
                                     <img src="icons/play.svg" alt="">
                                 </button>
                                 <span>Watch the video</span>
@@ -135,7 +135,7 @@
                                     environment</p>
                             </div>
                             <div class="tab__content--video">
-                                <button class="video__btn">
+                                <button class="video__btn" type="button" aria-label="Watch the video">
                                     <img src="icons/play.svg" alt="">
                                 </button>
                                 <span>Watch the video</span>
@@ -151,7 +151,7 @@
                                     everyone in the family</p>
                             </div>
                             <div class="tab__content--video">
-                                <button class="video__btn">
+                                <button class="video__btn" type="button" aria-label="Watch the video">
                                     <img src="icons/play.svg" alt="">
                                 </button>
                                 <span>Watch the video</span>
@@ -167,7 +167,7 @@
                                     happens</p>
                             </div>
                             <div class="tab__content--video">
-                                <button class="video__btn">
+                                <button class="video__btn" type="button" aria-label="Watch the video">
                                     <img src="icons/play.svg" alt="">
                                 </button>
                                 <span>Watch the video</span>
@@ -336,6 +336,13 @@
             </nav>
         </div>
     </footer>
+    <dialog class="video-modal" id="videoModal" aria-labelledby="videoModalTitle">
+        <div class="video-modal__inner">
+            <h2 class="video-modal__title" id="videoModalTitle"></h2>
+            <div class="video-modal__stage">Video coming soon</div>
+            <button class="video-modal__close" type="button" aria-label="Close">&times;</button>
+        </div>
+    </dialog>
   <script src="js/main.js"></script>
 </body>
 

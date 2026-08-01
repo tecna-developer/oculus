@@ -1003,3 +1003,63 @@ body {
         width: 100%;
     }
 }
+
+/* Модалка с видео */
+.video-modal {
+    /* Сброс * { margin: 0 } перебивает браузерное dialog { margin: auto },
+       поэтому центрируем явно */
+    margin: auto;
+    width: min(90vw, 60rem);
+    padding: 0;
+    border: 1px solid #BC10D8;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.video-modal::backdrop {
+    background-color: rgba(7, 7, 7, .7);
+}
+
+.video-modal__inner {
+    position: relative;
+    padding: 2rem;
+}
+
+.video-modal__title {
+    color: var(--heading-color);
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    padding-inline-end: 4rem;
+}
+
+.video-modal__stage {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    aspect-ratio: 16 / 9;
+    padding: 1rem;
+    background-image: url('../images/video_cover.jpg');
+    background-position: center;
+    background-size: cover;
+    color: var(--white-color);
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+.video-modal__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--heading-color);
+    transition: color .3s ease;
+}
+
+.video-modal__close:hover {
+    color: #BC10D8;
+}
