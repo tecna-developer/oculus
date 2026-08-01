@@ -1017,6 +1017,8 @@ body {
 }
 
 .video-modal::backdrop {
+    /* Цвет задан литералом, а не переменной: ::backdrop не наследует
+       custom properties до Chrome 122, а мы поддерживаем Chrome 37+ / Firefox 98+ / Safari 15.4+ */
     background-color: rgba(7, 7, 7, .7);
 }
 
@@ -1062,4 +1064,9 @@ body {
 
 .video-modal__close:hover {
     color: #BC10D8;
+}
+
+.video-modal__close:focus-visible {
+    outline: 2px solid #BC10D8;
+    outline-offset: 2px;
 }
