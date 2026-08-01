@@ -88,7 +88,13 @@ const metaverseBtn = document.querySelector('.metaverse__btn');
 
 const METAVERSE_DONE_MS = 2000;
 
+/* Запоминаем, что фокус был на кнопке: disabled = true сбрасывает фокус на
+   <body>, а без этого флага фокус вернули бы на кнопку и после клика мышью —
+   это было бы хуже исходной проблемы */
+let metaverseBtnWasFocused = false;
+
 metaverseBtn.addEventListener('click', () => {
+    metaverseBtnWasFocused = document.activeElement === metaverseBtn;
     metaverseBtn.disabled = true;
     metaverseStatus.textContent = 'Entering the metaverse…';
     metaverseInner.classList.add('metaverse__inner--loading');
@@ -106,5 +112,6 @@ metaverseStatus.addEventListener('animationend', (e) => {
     setTimeout(() => {
         metaverseStatus.textContent = '';
         metaverseBtn.disabled = false;
+        if (metaverseBtnWasFocused) metaverseBtn.focus();
     }, METAVERSE_DONE_MS);
 });

@@ -20,7 +20,8 @@ vanilla JavaScript.
   `--line-color`), so switching themes means overriding four variables rather than hunting
   down individual rules.
 - **CSS animations** — `slideFromRight` drifts the oversized "oculus" watermark across the
-  hero, `scaleRight` pulses the metaverse call-to-action.
+  hero, `metaversePulse` pulses the metaverse call-to-action without ever shrinking below
+  its resting size.
 - **Accessible tabs** — a proper `tablist` / `tab` / `tabpanel` structure with
   `aria-selected`, roving `tabindex`, and arrow / `Home` / `End` keyboard navigation.
 - **Gradient text and borders** via `background-clip: text` and `border-image`.
@@ -47,9 +48,11 @@ python -m http.server 8000
 ```
 index.html        markup for the whole page
 css/style.css     all styles: variables, layout, animations, media queries
-js/main.js        burger menu toggle and the tab switcher
+js/main.js        burger menu toggle, the tab switcher, the video modal and the
+                  metaverse GO button's loading sequence
 fonts/            Helvetica woff2 (regular and bold)
-icons/            UI icons (logo, cart, play, social)
+icons/            UI icons (logo, cart, play) — the social icons are now inlined
+                  as SVG markup in index.html
 images/           product photography and section backgrounds
 ```
 
@@ -60,6 +63,6 @@ so `1rem` equals 10px.
 
 This is a front-end exercise, so the page is presentation only — there is no backend behind
 it. The newsletter form validates the email and submits, but nothing receives it; the
-"BUY NOW", cart, play and metaverse buttons are styled targets without handlers. Only the
-first feature tab has real copy — panels 2 through 6 currently repeat it as placeholder
-content.
+"BUY NOW" and cart buttons are styled targets without handlers. The play buttons open a
+video modal, and the metaverse GO button plays a fake loading sequence, but neither talks
+to a backend. Each of the six feature tabs has its own copy and its own image.
