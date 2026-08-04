@@ -13,8 +13,9 @@ vanilla JavaScript.
 - **CSS Grid throughout** — the navbar, the feature tabs, the games row, the "In the box"
   mosaic and the accessories row are each laid out with Grid rather than floats or
   positioning.
-- **Responsive down to 320px** across seven breakpoints (1140, 990, 880, 820, 768, 568,
-  420px), including a slide-in burger menu on narrow screens.
+- **Seven breakpoints** (1140, 990, 880, 820, 768, 568, 420px), including a slide-in burger
+  menu on narrow screens. Measured: no horizontal overflow on phones (375–768px) or on
+  desktop (≥1140px). See Known issues for the widths where that is not yet true.
 - **Dark theme** driven by `prefers-color-scheme`. Custom properties are split into a fixed
   palette and semantic roles (`--bg-color`, `--text-color`, `--heading-color`,
   `--line-color`), so switching themes means overriding four variables rather than hunting
@@ -66,3 +67,27 @@ it. The newsletter form validates the email and submits, but nothing receives it
 "BUY NOW" and cart buttons are styled targets without handlers. The play buttons open a
 video modal, and the metaverse GO button plays a fake loading sequence, but neither talks
 to a backend. Each of the six feature tabs has its own copy and its own image.
+
+## Known issues
+
+The page still scrolls sideways in two places. Measured in a browser, not estimated:
+
+| Viewport | Horizontal overflow |
+|---|---|
+| ≥1140px | 0 |
+| 1000px | 114px |
+| 900px | 214px |
+| 820px | 62px |
+| 375–768px | 0 |
+| 320px | 15px |
+
+The tablet band between roughly 820 and 1140px is the bad one. Above 820px the burger menu
+is hidden and `.menu` returns to the flow, and something in that row sizes to its content
+rather than to the available width — the hero heading then fills the widened container
+rather than causing it. The root cause is not isolated yet; a plausible-looking fix to
+`.nav`'s grid tracks was tried and measured to change nothing, so it was not kept.
+
+The 15px at 320px is a separate, smaller problem.
+
+Both are worth a proper investigation rather than a guess. `overflow-x: hidden` on the body
+would hide the symptom and is not the fix.
